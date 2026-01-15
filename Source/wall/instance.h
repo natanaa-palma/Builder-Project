@@ -4,7 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "build_interaction_interface.h"
 #include "wall_enums.h"
-#include "Wall.generated.h"
+#include "instance.generated.h"
 
 // ============================================================================
 //                            WALL ACTOR
