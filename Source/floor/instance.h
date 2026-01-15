@@ -5,7 +5,7 @@
 #include "GameFramework/Actor.h"
 #include "grid_tool_enums.h" 
 #include "grid_calculator_enum.h" 
-#include "floor_grid.generated.h" 
+#include "instance.generated.h" 
 
 // ================================================================
 // 	               SYSTEM COORDINATOR: FloorGrid
