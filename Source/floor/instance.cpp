@@ -1,14 +1,14 @@
 
-#include "system.h"
+#include "instance.h"
 #include "Templates/UniquePtr.h"
 #include "ProceduralMeshComponent.h"
 #include "enums_grid_tool.h"
 #include "global_build_manager.h"
-#include "grid/floor/calculator.h"
+#include "calculator.h"
 #include "log/commands.h"
-#include "grid/floor/click.h"
+#include "click.h"
 #include "grid/wall/interactions.h"
-#include "grid/floor/object_interactions.h"
+#include "object_interactions.h"
 #include "storage_tiles.h"
 
 using namespace data_floor_grid;
