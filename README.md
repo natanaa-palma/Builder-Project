@@ -35,7 +35,7 @@ Quick demonstration of the deletion tool and vertical window placement.
 
 ## 🧩 Architecture Overview
 
-The Grid system architecture has a map that presents the classes relations    
+The Grid system architecture has a map that presents the class relations    
 👉 `Media/floor_grid_structure_map.jpg`
 
 The structure ensures:
