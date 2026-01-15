@@ -2,8 +2,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "build_interaction_interface.h"
-#include "wall_enums.h"
+#include "i_build_interaction.h"
+#include "enums.h"
 #include "instance.generated.h"
 
 // ============================================================================
