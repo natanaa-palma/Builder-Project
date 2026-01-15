@@ -3,13 +3,12 @@
 
 class LogCommands;
 class BaseGridCalculator;
-class ProceduralWallGenerator;
-class BuildModeManager;
+class WallGenerator;
 class AFloorGrid;
 class GridClick;
 class AWall;
-
-class GridTileData;
+class GlobalBuildManager;
+class StorageGridData;
 
 /**
  * GridWallInteractions - Handles wall placement and manipulation logic.
@@ -21,7 +20,7 @@ class GridTileData;
  * 4. Wall instantiation (final placement)
  *
  * Works in tandem with GridTileData for spatial validation
- * and ProceduralWallGenerator for mesh creation.
+ * and WallGenerator for mesh creation.
  */
 class GAMEBUILDMODE_API GridWallInteractions
 {
@@ -34,7 +33,7 @@ public:
     BaseGridCalculator* calculator,
     AFloorGrid* grid,
     GridClick* click,
-    GridTileData* tiles_data
+    StorageGridData* tiles_data
   );
 
   /**
@@ -72,19 +71,19 @@ private:
 
 private:
 
-  TUniquePtr<ProceduralWallGenerator> wall_generator_;
+  TUniquePtr<WallGenerator> wall_generator_;
 
   bool is_placing_wall_;
 
   // --- SINGLETONS ---
-  LogCommands* log_commands_;
-  BuildModeManager* build_mode_manager_;
+  LogCommands* log_;
+  GlobalBuildManager* build_mode_manager_;
 
   // --- DEPENDENCIES (injected) ---
-  const GridTileData* kGridData;
-  const AFloorGrid* kFloorGrid;
-  const GridClick* kClickHandler;
-  const BaseGridCalculator* kCalculator;
+  StorageGridData* grid_data_;
+  AFloorGrid* floor_grid_;
+  GridClick* click_;
+  BaseGridCalculator* calculator_;
 
 
   // --- VISUAL FEEDBACK ---
