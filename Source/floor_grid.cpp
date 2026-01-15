@@ -1,14 +1,15 @@
 
-#include "GridSystem/floor_grid.h"
+#include "system.h"
+#include "Templates/UniquePtr.h"
 #include "ProceduralMeshComponent.h"
-#include "grid_tool_enums.h"
-#include "build_mode_manager.h"
-#include "GridSystem/grid_calculator.h"
-#include "Log/log_commands.h"
-#include "GridSystem/grid_click.h"
-#include "GridSystem/WallGenerator/grid_wall_interactions.h"
-#include "GridSystem/grid_object_interactions.h"
-#include "grid_tile_data.h"
+#include "enums_grid_tool.h"
+#include "global_build_manager.h"
+#include "grid/floor/calculator.h"
+#include "log/commands.h"
+#include "grid/floor/click.h"
+#include "grid/wall/interactions.h"
+#include "grid/floor/object_interactions.h"
+#include "storage_tiles.h"
 
 using namespace grid_data;
 
