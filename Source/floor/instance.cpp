@@ -81,7 +81,7 @@ void AFloorGrid::InitializeComponents() {
 }
 
 
-void AFloorGrid::HandleClick(EditTool tool, const FVector& world_point, bool is_pressed) {
+void AFloorGrid::HandleClick(EditTool tool, const FVector& world_point, bool is_pressed) const {
 
   switch (tool) {
   case EditTool::kPlaceWall:
