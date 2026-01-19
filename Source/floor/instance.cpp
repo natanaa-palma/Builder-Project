@@ -63,19 +63,19 @@ void AFloorGrid::InitializeComponents() {
   click_ = TMakeUnique<GridClick>(calculate_);
 
   wall_interactions_ = MakeUnique<GridWallInteractions>(
-    this, click_.Get(), tiles_data_.Get()
+    this, click_, tiles_data_
   );
 
   object_interactions_ = MakeUnique<GridObjectInteractions>(
-    this, click_.Get(), tiles_data_.Get()
+    this, click_, tiles_data_,
   );
 
   pathfinder_ = MakeUnique<GridPathFinder>(
-    this, click_.Get(), tiles_data_.Get()
+    this, click_, tiles_data_
   );
 
   rooms_manager_ = MakeUnique<RoomsManager>(
-    this, click_.Get(), tiles_data_.Get()
+    this, click_, tiles_data_
   );
 
 }
