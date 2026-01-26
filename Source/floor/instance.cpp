@@ -60,22 +60,11 @@ void AFloorGrid::Initialize(grid_calculator_enum::Lot lot_key, float floor_heigh
 void AFloorGrid::InitializeComponents() {
 
   click_ = TMakeUnique<GridClick>(calculate_);
+  wall_interactions_ = MakeUnique<GridWallInteractions>(this);
+  object_interactions_ = MakeUnique<GridObjectInteractions>(this);
 
-  wall_interactions_ = MakeUnique<GridWallInteractions>(
-    this, click_.Get(), tiles_data_.Get()
-  );
-
-  object_interactions_ = MakeUnique<GridObjectInteractions>(
-    this, click_.Get(), tiles_data_.Get(),
-  );
-
-  pathfinder_ = MakeUnique<GridPathFinder>(
-    this, click_.Get(), tiles_data_.Get()
-  );
-
-  rooms_manager_ = MakeUnique<RoomsManager>(
-    this, click_.Get(), tiles_data_.Get()
-  );
+  pathfinder_ = MakeUnique<GridPathFinder>(this);
+  rooms_manager_ = MakeUnique<RoomsManager>(this);
 
 }
 
@@ -91,9 +80,6 @@ void AFloorGrid::HandleClick(EditTool tool, const FVector& world_point, bool is_
     object_interactions_->HandlePlaceObject(world_point, is_pressed); 
     break;
 
-  case EditTool::None:
-    break;
-    
   default:
     if (debug) {
       Info("WARNING FloorInstance", "Unhandled tool type: {0}", 
