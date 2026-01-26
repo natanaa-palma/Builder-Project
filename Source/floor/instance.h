@@ -31,7 +31,7 @@ class GridObjectInteractions;
 class GridPathFinder;
 class RoomsManager;
 
-// UnrealEngine has it's own name conventions.
+// UnrealEngine has its own naming conventions.
 UCLASS()
 class GAMEBUILDMODE_API AFloorGrid : public AActor {
 	GENERATED_BODY()
@@ -42,10 +42,10 @@ public:
 	AFloorGrid* floor_above;
 	AFloorGrid* floor_below;
 	
-	/** Template with optmized operations, accessed via this interface. */
+	/** Template with optimized operations, accessed via this interface. */
 	BaseGridCalculator* calculator;
 	
-	TUniquePtr<DataFloor> data; // Holds tiles, tile edges, tile corners and operations.
+	TUniquePtr<DataFloor> data; // Holds tiles, tile edges, tile corners, and operations.
 	TUniquePtr<GridClick> click;
 	TUniquePtr<DataObjects> objects;
 	
@@ -59,10 +59,10 @@ public:
 	/** Enables debug logging and visualization. */
 	bool debug = false;
 
-	// Unreal Engine classes doesn't allow to pass variable through constructor.
+	// Unreal Engine classes don't allow passing variables through the constructor.
 	AFloorGrid();
 
-	// It's needed to be initialized manually.
+	//It needs to be initialized manually.
 	void Initialize(grid_calculator_enum::Lot lot_key, float floor_height);
 
 	void HandleClick(EditTool tool, const FVector& world_point, bool is_pressed) const;
@@ -73,7 +73,7 @@ protected:
 	virtual void BeginPlay() override {
 		Super::BeginPlay();
 
-		// This is just for test purpose, instead this will be called by the GlobalMap class.
+		// This is just for test purposes; it will actually be called by the GlobalMap class.
 		Initialize(grid_calculator_enum::Lot::kNeighbor1Lot1, 100.f);
 	}
 
@@ -89,8 +89,6 @@ private:
 		if (!debug) return;
 		Log::Infof(category, format, args...);
 	}
-
-	void InitializeComponents();
 
 	// Core systems
 	LogCommands* log_;
