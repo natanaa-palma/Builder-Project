@@ -41,6 +41,20 @@ public:
 	int32 current_floor_index;
 	AFloorGrid* floor_above;
 	AFloorGrid* floor_below;
+	
+	/** Template with optmized operations, accessed via this interface. */
+	BaseGridCalculator* calculator;
+	
+	TUniquePtr<DataFloor> data; // Holds tiles, tile edges, tile corners and operations.
+	TUniquePtr<GridClick> click;
+	TUniquePtr<DataObjects> objects;
+	
+	// Member classes
+	TUniquePtr<GridWallInteractions> wall_interactions;
+	TUniquePtr<GridObjectInteractions> object_interactions;
+	TUniquePtr<GridPathFinder> pathfinder;
+	TUniquePtr<RoomsManager> rooms_manager;
+
 
 	/** Enables debug logging and visualization. */
 	bool debug = false;
@@ -81,18 +95,5 @@ private:
 	// Core systems
 	LogCommands* log_;
 	BuildModeManager* build_mode_manager_;
-
-	/** Template with optmized operations, accessed via this interface. */
-	BaseGridCalculator* calculate_;
-
-	// Member classes
-	TUniquePtr<GridWallInteractions> wall_interactions_;
-	TUniquePtr<GridObjectInteractions> object_interactions_;
-	TUniquePtr<GridPathFinder> pathfinder_;
-	TUniquePtr<RoomsManager> rooms_manager_;
-
-	// Data
-	TUniquePtr<GridClick> click_;
-	TUniquePtr<GridTileData> tiles_data_; // Holds tiles, tile edges, tile corners and operations.
 };
 
